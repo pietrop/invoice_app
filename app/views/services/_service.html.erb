@@ -1,0 +1,20 @@
+
+  <p>
+    <strong>Date:</strong>
+    <%= service.date %>
+  </p>
+   <strong>Phone:</strong>
+    <%= service.service %>
+  </p>
+
+    </p>
+   <strong>e-mail:</strong>
+    <%= service.rate %>
+  </p>
+
+<p>
+  <%= link_to 'Delete My Details', [service.invoice, service],
+               method: :delete,
+               data: { confirm: 'Are you sure?' } %>
+</p>
+

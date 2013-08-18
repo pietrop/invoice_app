@@ -1,8 +1,12 @@
 Invoiceapp::Application.routes.draw do
 
   resources :invoices do 
+    resources :bank_details
     resources :form_details
     resources :my_details
+    resources :clients
+    resources :services
+   
   end 
 
   # The priority is based upon order of creation: first created -> highest priority.

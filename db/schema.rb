@@ -11,7 +11,31 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130818192819) do
+ActiveRecord::Schema.define(version: 20130818204001) do
+
+  create_table "bank_details", force: true do |t|
+    t.string   "sort_code"
+    t.integer  "account_number"
+    t.string   "account_name"
+    t.integer  "invoice_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "bank_details", ["invoice_id"], name: "index_bank_details_on_invoice_id"
+
+  create_table "clients", force: true do |t|
+    t.string   "client_name"
+    t.string   "client_address"
+    t.string   "contact_name"
+    t.string   "telephone"
+    t.string   "email"
+    t.integer  "invoice_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "clients", ["invoice_id"], name: "index_clients_on_invoice_id"
 
   create_table "form_details", force: true do |t|
     t.integer  "number"
@@ -40,5 +64,16 @@ ActiveRecord::Schema.define(version: 20130818192819) do
   end
 
   add_index "my_details", ["invoice_id"], name: "index_my_details_on_invoice_id"
+
+  create_table "services", force: true do |t|
+    t.date     "date"
+    t.string   "service"
+    t.integer  "rate"
+    t.integer  "invoice_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "services", ["invoice_id"], name: "index_services_on_invoice_id"
 
 end

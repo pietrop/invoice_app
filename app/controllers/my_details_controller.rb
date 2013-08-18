@@ -18,15 +18,15 @@ class MyDetailsController < ApplicationController
 #Update
   def edit
   @my_detail = my_detail.find(params[:id])
-  @invoice = Invoice.find(params[:post_id])
+  @invoice = Invoice.find(params[:invoice_id])
 end
 
   def update
-    @invoice = Invoice.find(params[:post_id])
+    @invoice = Invoice.find(params[:invoice_id])
     @my_detail = FormDetail.find(params[:id])
 
     if
-      @my_detail.update_attributes(params[:comment])
+      @my_detail.update_attributes(params[:my_detail])
       redirect_to @invoice
     else
       render 'edit'
@@ -41,7 +41,7 @@ end
 
 #strong params
   private
-    def form_detail_params
+    def my_detail_params
       params.require(:my_detail).permit(:name, :address, :phone, :email)
     end
 

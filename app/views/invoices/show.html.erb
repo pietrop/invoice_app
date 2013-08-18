@@ -17,6 +17,16 @@
 <%= render "my_details/form" %>
 
 
+<%= render @invoice.clients %>
+<%= render "clients/form" %>
+
+
+<%= render @invoice.services %>
+<%= render "services/form" %>
+
+<%= render @invoice.bank_details %>
+<%= render "bank_details/form" %>
+
 <%= link_to 'Back', invoices_path %>
 <%= link_to 'Edit', edit_invoice_path(@invoice) %>
 

@@ -1,0 +1,20 @@
+
+  <p>
+    <strong>Sort Code:</strong>
+    <%= bank_detail.sort_code %>
+  </p>
+   <strong>Account Number:</strong>
+    <%= bank_detail.account_number %>
+  </p>
+
+    </p>
+   <strong>Account Name:</strong>
+    <%= bank_detail.account_name %>
+  </p>
+
+<p>
+  <%= link_to 'Delete My Details', [bank_detail.invoice, bank_detail],
+               method: :delete,
+               data: { confirm: 'Are you sure?' } %>
+</p>
+

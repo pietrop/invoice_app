@@ -1,0 +1,19 @@
+<h3>Bank Details</h3>
+<%= form_for([@invoice, @invoice.bank_details.build]) do |f| %>
+  <p>
+    <%= f.label :sort_code %><br />
+    <%= f.text_field :sort_code %>
+  </p>
+   <p>
+    <%= f.label :account_number %><br />
+    <%= f.text_field :account_number %>
+  </p>
+  <p>
+    <%= f.label :account_name %><br />
+    <%= f.text_field :account_name %>
+  </p>
+
+  <p>
+    <%= f.submit %>
+  </p>
+<% end %>

@@ -26,7 +26,7 @@ end
     @form_detail = FormDetail.find(params[:id])
 
     if
-      @form_detail.update_attributes(params[:comment])
+      @form_detail.update_attributes(params[:form_detail])
       redirect_to @invoice
     else
       render 'edit'

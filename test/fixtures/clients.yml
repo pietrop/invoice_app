@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  client_name: MyString
+  client_address: MyString
+  contact_name: MyString
+  telephone: MyString
+  email: MyString
+  invoice_id: 
+
+two:
+  client_name: MyString
+  client_address: MyString
+  contact_name: MyString
+  telephone: MyString
+  email: MyString
+  invoice_id: 

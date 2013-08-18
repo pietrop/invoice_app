@@ -1,0 +1,33 @@
+
+ 
+<h2>Client Details:</h2>
+<%= form_for([@invoice, @invoice.clients.build]) do |f| %>
+ <p>
+    <%= f.label :client_name %><br />
+    <%= f.text_field :client_name %>
+  </p>
+  <p>
+    <%= f.label :client_address %><br />
+    <%= f.date_field :client_address %>
+  </p>
+
+ <p>
+    <%= f.label :contact_name %><br />
+    <%= f.date_field :contact_name %>
+  </p>
+
+   <p>
+    <%= f.label :telephone %><br />
+    <%= f.date_field :telephone %>
+  </p>
+
+   <p>
+    <%= f.label :email %><br />
+    <%= f.date_field :email %>
+  </p>
+
+  <p>
+    <%= f.submit %>
+  </p>
+<% end %>
+ 
