@@ -1,0 +1,17 @@
+
+ 
+<h2>Form Details:</h2>
+<%= form_for([@invoice, @invoice.form_details.build]) do |f| %>
+  <p>
+    <%= f.label :number %><br />
+    <%= f.text_field :number %>
+  </p>
+  <p>
+    <%= f.label :date %><br />
+    <%= f.text_field :date %>
+  </p>
+  <p>
+    <%= f.submit %>
+  </p>
+<% end %>
+ 

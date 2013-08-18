@@ -1,0 +1,25 @@
+ 
+<h2>Form Details:</h2>
+<%= form_for([@invoice, @invoice.my_details.build]) do |f| %>
+  <p>
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </p>
+   <p>
+    <%= f.label :address %><br />
+    <%= f.text_area :address %>
+  </p>
+  <p>
+    <%= f.label :phone %><br />
+    <%= f.text_field :phone %>
+  </p>
+  <p>
+    <%= f.label :email %><br />
+    <%= f.text_field :email %>
+  </p>
+    <%= f.submit %>
+  </p>
+<% end %>
+ 
+
+

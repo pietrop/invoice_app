@@ -1,0 +1,23 @@
+  <p>
+    <strong>Name:</strong>
+    <%= my_detail.name %>
+  </p> 
+  <p>
+    <strong>Date:</strong>
+    <%= my_detail.address %>
+  </p>
+   <strong>Phone:</strong>
+    <%= my_detail.phone %>
+  </p>
+
+    </p>
+   <strong>e-mail:</strong>
+    <%= my_detail.email %>
+  </p>
+
+<p>
+  <%= link_to 'Delete My Details', [my_detail.invoice, my_detail],
+               method: :delete,
+               data: { confirm: 'Are you sure?' } %>
+</p>
+

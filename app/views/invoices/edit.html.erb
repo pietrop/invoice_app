@@ -1,0 +1,35 @@
+
+<h2>Editing Client</h2>
+ 
+<%= form_for :invoice, url: invoice_path(@invoice.id),
+method: :patch do |f| %>
+
+ <!-- error validation display -->
+<% if @invoice.errors.any? %>
+ 	<div id="errorExplanation">
+ 		<h2><%= pluralize(@invoice.errors.count, "error") %> prohibited
+      this post from being saved:</h2>
+      <ul>
+    	<% @invoice.errors.full_messages.each do |msg| %>
+     	 <li><%= msg %></li>
+    	<% end %>
+  	  </ul>
+ 	 </div>
+  <% end %>
+<!-- end error validation display -->
+
+
+<h3>Edit invoice </h3>
+
+    <p>
+      <%= f.label :note%><br>
+      <%= f.text_field :note %>
+    </p>
+
+
+    <p>
+       <%= f.submit %>
+    </p>
+<% end %>
+
+<!-- End User details -->

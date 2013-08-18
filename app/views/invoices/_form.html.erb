@@ -1,0 +1,33 @@
+
+<!-- User details -| to be abstracted as separate -->
+
+<%= form_for :invoice, url: invoices_path do |f| %>
+  
+  <!-- error validation display -->
+<% if @invoice.errors.any? %>
+ 	<div id="errorExplanation">
+ 		<h2><%= pluralize(@invoice.errors.count, "error") %> prohibited
+      this post from being saved:</h2>
+      <ul>
+    	<% @invoice.errors.full_messages.each do |msg| %>
+     	 <li><%= msg %></li>
+    	<% end %>
+  	  </ul>
+ 	 </div>
+  <% end %>
+<!-- end error validation display -->
+
+
+<h2>invoice</h2>
+
+    <p>
+      <%= f.label :note %><br>
+      <%= f.text_area :note %>
+    </p>
+
+   <p>
+       <%= f.submit %>
+    </p>
+<% end %>
+
+<%= link_to 'Back', invoices_path %>

@@ -1,0 +1,22 @@
+<!-- is this not the same as index? -->
+<h2>Invoice Details</h2>
+<p>
+  <strong>Note:</strong>
+  <%= @invoice.note %>
+</p>
+ 
+
+<!--  Form details Rendered 1 element view  -->
+<%= render @invoice.form_details %>
+
+<!--  Form details form field -->
+<%= render "form_details/form" %>
+<!-- i-->
+
+<%= render @invoice.my_details %>
+<%= render "my_details/form" %>
+
+
+<%= link_to 'Back', invoices_path %>
+<%= link_to 'Edit', edit_invoice_path(@invoice) %>
+

@@ -1,0 +1,14 @@
+  <p>
+    <strong>Number:</strong>
+    <%= form_detail.number %>
+  </p> 
+  <p>
+    <strong>Date:</strong>
+    <%= form_detail.date %>
+  </p>
+<p>
+  <%= link_to 'Delete Invoice Number and Date', [form_detail.invoice, form_detail],
+               method: :delete,
+               data: { confirm: 'Are you sure?' } %>
+</p>
+
