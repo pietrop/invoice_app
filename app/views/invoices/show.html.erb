@@ -10,7 +10,7 @@
 			<div class="span1">
 			</div>
 			<div class="span7">
-			  <%= render @invoice.form_details %>
+			  <%= render @invoice.form_detail if @invoice.form_detail  %>
 			</br>
 			  <%= render @invoice.clients %>
 			</div>
@@ -36,7 +36,7 @@
 			<div class="span1">
 			</div>
 			<div class="span6">
-				<p>Payment terms: 21 days net</br>Payment Details:</p>
+				<p>Payment terms: 21 days net.</br>Payment Details:</p>
 			<%= render @invoice.bank_details %>
 			</div>
 			<div class="span3">

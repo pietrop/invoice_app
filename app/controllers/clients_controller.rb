@@ -17,7 +17,7 @@ http_basic_authenticate_with name: "p", password: "secret", only: :destroy
 #Update
   def edit
   @client = client.find(params[:id])
-  @invoice = Invoice.find(params[:post_id])
+  @invoice = Invoice.find(params[: id])
 end
 
   def update

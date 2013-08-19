@@ -1,7 +1,7 @@
 
  
 <h2>Form Details:</h2>
-<%= form_for([@invoice, @invoice.form_details.build]) do |f| %>
+<%= form_for([@invoice, @invoice.form_detail]) do |f| %>
   <p>
     <%= f.label :number %><br />
     <%= f.text_field :number %>
@@ -11,7 +11,7 @@
     <%= f.text_field :date %>
   </p>
   <p>
-    <%= f.submit %>
+    <%= f.submit :class => "btn" %>
   </p>
 <% end %>
  
