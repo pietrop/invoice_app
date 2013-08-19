@@ -1,32 +1,117 @@
 <!-- is this not the same as index? -->
-<h2>Invoice Details</h2>
-<p>
-  <strong>Note:</strong>
-  <%= @invoice.note %>
-</p>
+
+<div class="well well-lg">
+<div class="container">
+
+
+<h1>Invoice</h1>
+	<div class="row-fluid">
+		<div class="span12">
+			<div class="span1">
+			</div>
+			<div class="span7">
+			  <%= render @invoice.form_details %>
+			</br>
+			  <%= render @invoice.clients %>
+			</div>
+		
+			<div class="span3">
+				<%= render @invoice.my_details %>
+			</div>
+</div>
+	<div class="span12">
+		<div class="span12">
+		</div>
+			<div class="span2">
+			</div>
+			<div class="span6">
+			<%= render @invoice.services %>
+			</div>
+			<div class="span2">
+			</div>
+		<div class="span12">
+		</div>
+		<div class="span12">
+		</div>
+			<div class="span1">
+			</div>
+			<div class="span6">
+				<p>Payment terms: 21 days net</br>Payment Details:</p>
+			<%= render @invoice.bank_details %>
+			</div>
+			<div class="span3">
+			</div>
+
+	</div>
+	</div>
+</div>
+
+
+
+
+
+
+<%= link_to 'Back', invoices_path %> </br>
+<strong>Note: </strong><%= @invoice.note %>
+<%= link_to 'Edit', edit_invoice_path(@invoice) %> 
+
+
+	</div>
+
+<div class="well well-lg">
+<div class="container">
+
+
+
+
+
+<h1>Invoice</h1>
+	<div class="row-fluid">
+		<div class="span12">
+			<div class="span1">
+			</div>
+			<div class="span7">
+			   <%= render "form_details/form" %>
+			</br>
+			  <%= render "clients/form" %>
+			</div>
+		
+			<div class="span3">
+				<%= render "my_details/form" %>
+			</div>
+</div>
+	<div class="span12">
+		<div class="span12">
+		</div>
+			<div class="span2">
+			</div>
+			<div class="span6">
+			<%= render "services/form" %>
+			</div>
+			<div class="span2">
+			</div>
+		<div class="span12">
+		</div>
+		<div class="span12">
+		</div>
+			<div class="span1">
+			</div>
+			<div class="span6">
+				<p>Payment terms: 21 days net</br>Payment Details:</p>
+			<%= render "bank_details/form" %>
+			</div>
+			<div class="span3">
+			</div>
+
+		</div>
+
+
+
  
+		   
+		   
+		   
+		   
 
-<!--  Form details Rendered 1 element view  -->
-<%= render @invoice.form_details %>
-
-<!--  Form details form field -->
-<%= render "form_details/form" %>
-<!-- i-->
-
-<%= render @invoice.my_details %>
-<%= render "my_details/form" %>
-
-
-<%= render @invoice.clients %>
-<%= render "clients/form" %>
-
-
-<%= render @invoice.services %>
-<%= render "services/form" %>
-
-<%= render @invoice.bank_details %>
-<%= render "bank_details/form" %>
-
-<%= link_to 'Back', invoices_path %>
-<%= link_to 'Edit', edit_invoice_path(@invoice) %>
-
+		   	</div>
+</div>

@@ -1,20 +1,18 @@
  
 <h2>Form Service:</h2>
 <%= form_for([@invoice, @invoice.services.build]) do |f| %>
-  <p>
-    <%= f.label :date %><br />
+
+    <%= f.label :date %>
     <%= f.text_field :date %>
-  </p>
-   <p>
-    <%= f.label :service %><br />
+  
+    <%= f.label :service %> 
     <%= f.text_area :service %>
-  </p>
-  <p>
-    <%= f.label :rate %><br />
+
+    <%= f.label :rate %>
     <%= f.text_field :rate %>
-  </p>
+
 
     <%= f.submit %>
-  </p>
+ 
 <% end %>
  

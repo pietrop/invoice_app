@@ -1,20 +1,25 @@
 
-  <p>
-    <strong>Date:</strong>
-    <%= service.date %>
-  </p>
-   <strong>Phone:</strong>
-    <%= service.service %>
-  </p>
-
-    </p>
-   <strong>e-mail:</strong>
-    <%= service.rate %>
-  </p>
-
-<p>
-  <%= link_to 'Delete My Details', [service.invoice, service],
+<p>Providing <%= service.service %> services as follow: </p>
+<table  class="table table-hover">
+   <thead>
+      <tr>
+        <th><strong>Date</strong></th>
+        <th><strong>Services</strong></th>
+        <th><strong>Rate</strong></th>
+        <th></th>
+      </tr>
+  </thead>
+ <tbody>
+  <tr>
+      <td><%= service.date %></td>
+      <td><%= service.service %></td>
+      <td><%= service.rate %></td>
+      <td><%= link_to 'Delete', [service.invoice, service],
                method: :delete,
-               data: { confirm: 'Are you sure?' } %>
-</p>
+               data: { confirm: 'Are you sure?' } %></td>
+     </tr>
+  </tbody>
+</table>
+
+    
 

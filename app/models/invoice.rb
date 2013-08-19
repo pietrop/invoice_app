@@ -6,4 +6,6 @@ class Invoice < ActiveRecord::Base
 	has_many :services, dependent: :destroy
 	has_many :bank_details, dependent: :destroy
 
+	
+
 end

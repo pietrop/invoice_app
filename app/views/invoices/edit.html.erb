@@ -1,5 +1,5 @@
 
-<h2>Editing Client</h2>
+<h3>Editing Invoice Note</h3>
  
 <%= form_for :invoice, url: invoice_path(@invoice.id),
 method: :patch do |f| %>
@@ -18,11 +18,8 @@ method: :patch do |f| %>
   <% end %>
 <!-- end error validation display -->
 
-
-<h3>Edit invoice </h3>
-
     <p>
-      <%= f.label :note%><br>
+      <%= f.label :notes %>
       <%= f.text_field :note %>
     </p>
 
