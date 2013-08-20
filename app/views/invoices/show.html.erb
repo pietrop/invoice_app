@@ -9,27 +9,35 @@
 
 	<div class="row-fluid">
 		<div class="span12">
-			<div class="span1">
-			</div>
+			<div class="span1">	</div>
 			<div class="span7">
-			  <%= render @invoice.form_detail if @invoice.form_detail  %>
-			</br>
-			  <%= render "clients/client" %>
+<!-- form details -->
+			  <%= render @invoice.form_detail if @invoice.form_detail  %></br>
+<!-- client details -->
+				  <%= render "clients/client" %>
 			</div>
 		
 			<div class="span3">
-				<%= render @invoice.my_detail if @invoice.my_detail %> <!-- @invoice.clients -->
+<!-- invoice my details  -->
+				<%= render @invoice.my_detail if @invoice.my_detail %> 
+
+
+<!-- 	trying out with new my detail form link -->
+	<%= link_to 'New My Detail', new_invoice_my_detail_path([@invoice, @my_detail]) %>
+
+
 			</div>
-</div>
-	<div class="span12">
-		<div class="span12">
 		</div>
-			<div class="span2">
-			</div>
+
+	<div class="span12">
+		<div class="span12"></div>
+			<div class="span2"></div>
 			<div class="span6">
+<!-- service description -->
 				<p>Providing <%= @invoice.services.first.service if @invoice.services.any? %> services as follow: </p>
 				
 
+<!-- Services list -->
 <table  class="table table-hover"   data-provides="rowlink">
    <thead>
       <tr>
@@ -42,7 +50,7 @@
   </thead>
  <tbody>
  	<% for service in @invoice.services %>
-  <tr>
+ 	<tr>
       <td><%= service.date %></td>
       <td><%= service.service %>  </td>
       <td><%= service.rate %> £ </td> 
@@ -50,27 +58,23 @@
       <td><%= link_to 'Delete', [service.invoice, service],
                method: :delete,
                data: { confirm: 'Are you sure?' } %></td>  
-         <% end %>
-    	</tr>
+    <% end %>
+    </tr>
 	<tr>
-<td></td>
-<td></td>
-	<td><p><b><%= @invoice.services.sum('rate') %> £</b></p></td>
-<td></td>
-<td></td>
+		<td></td>
+		<td></td>
+		<td><p><b><%= @invoice.services.sum('rate') %> £</b></p></td>
+		<td></td>
+		<td></td>
 	 </tr>
   </tbody>
-
 </table>
+<!-- end of services -->
 
 
 
-
-
-
-
-			</div>
-			<div class="span2">
+</div>
+<div class="span2">
 			</div>
 		<div class="span12">
 		</div>
@@ -80,34 +84,31 @@
 			</div>
 			<div class="span6">
 				<p>Payment terms: 21 days net.<br><br>Payment Details:</p>
-
-			<%# render @invoice.bank_details %>
+<!-- Bank  details-->
+			<%= render @bank_detail if @bank_detail %>
 			</div>
 			<div class="span3">
 			</div>
-
-	</div>
+		</div>
 	</div>
 </div>
 
 
+<!-- note -->
+	<strong>Note: </strong><%= @invoice.note %>
+<!-- edit note -->
+	<%= link_to 'Edit', edit_invoice_path(@invoice) %> 
+</div>
+<!-- back link-->
+	<%= link_to 'Back', invoices_path %> </br>
 
 
 
 
-<%= link_to 'Back', invoices_path %> </br>
-<strong>Note: </strong><%= @invoice.note %>
-<%= link_to 'Edit', edit_invoice_path(@invoice) %> 
-
-
-	</div>
+<!-- ---delete below here when done ------------------- -->
 
 <div class="well well-lg">
 <div class="container">
-
-
-
-
 
 <h1>Invoice</h1>
 	<div class="row-fluid">
@@ -115,47 +116,39 @@
 			<div class="span1">
 			</div>
 			<div class="span7">
-			   <%= render "form_details/form" unless @invoice.form_detail %>
+<!-- Invoice Form details -->
+			   <% render "form_details/form" unless @invoice.form_detail %>
 			</br>
+<!-- client form -->
 			  <%= render "clients/form" %>
 			</div>
 		
 			<div class="span3">
+<!-- my details form -->
 				<%# render "my_details/form" %>
 			</div>
-</div>
-	<div class="span12">
-		<div class="span12">
 		</div>
-			<div class="span2">
-			</div>
+
+
+
+		<div class="span12">
+			<div class="span12"></div>
+			<div class="span2"></div>
 			<div class="span6">
+
+<!-- services form -->
 			<%# render "services/form" %>
 			</div>
-			<div class="span2">
-			</div>
-		<div class="span12">
-		</div>
-		<div class="span12">
-		</div>
-			<div class="span1">
-			</div>
+			<div class="span2"></div>
+			<div class="span12"></div>
+			<div class="span12"></div>
+			<div class="span1"></div>
 			<div class="span6">
 				<p>Payment terms: 21 days net</br>Payment Details:</p>
+<!-- Bank -->
 			<%# render "bank_details/form" %>
 			</div>
-			<div class="span3">
-			</div>
-
+			<div class="span3"></div>
 		</div>
-
-
-
- 
-		   
-		   
-		   
-		   
-
-		   	</div>
+	</div>
 </div>

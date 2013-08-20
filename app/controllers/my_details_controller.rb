@@ -1,6 +1,9 @@
 class MyDetailsController < ApplicationController
 	http_basic_authenticate_with name: "p", password: "secret", only: :destroy
-	def create
+	def new
+    my_detail = MyDetail.new
+  end 
+  def create
 	    @invoice = Invoice.find(params[:invoice_id])
 	    @my_detail = @invoice.my_details.create(params[:my_detail].permit(:name, :address, :phone, :email))
 	    redirect_to invoice_path(@invoice)

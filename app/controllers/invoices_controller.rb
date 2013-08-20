@@ -32,6 +32,11 @@ class InvoicesController < ApplicationController
 	def show
 	 	@invoice = Invoice.find(params[:id])
 	 	@client = @invoice.client
+	 	@my_detail = @invoice.my_detail
+
+	 	if @my_detail
+		 	@bank_detail = @my_detail.bank_detail
+		 end
 	end
 
 #Update
