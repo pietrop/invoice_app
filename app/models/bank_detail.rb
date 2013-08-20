@@ -1,3 +1,3 @@
 class BankDetail < ActiveRecord::Base
-  belongs_to :invoice
+  belongs_to :my_detail
 end

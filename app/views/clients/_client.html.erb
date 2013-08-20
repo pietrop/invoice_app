@@ -1,29 +1,31 @@
-  <p>
-    <strong>Client Name:</strong>
-    <%= client.client_name %>
-  </p> 
-  <p>
-    <strong>Client Address:</strong>
-    <%= client.client_address %>
-  </p>
-  <p>
-    <strong>Contact Name:</strong>
-    <%= client.contact_name %>
-  </p>
+  <% if @client %>
+
     <p>
-    <strong>Telephone:</strong>
-    <%= client.telephone %>
-  </p>
+      <strong>Client Name:</strong>
+      <%= @client.client_name  %>
+    </p> 
     <p>
-    <strong>e-mail:</strong>
-    <%= client.email %>
+      <strong>Client Address:</strong>
+      <%= @client.client_address %>
+    </p>
+    <p>
+      <strong>Contact Name:</strong>
+      <%= @client.contact_name %>
+    </p>
+      <p>
+      <strong>Telephone:</strong>
+      <%= @client.telephone %>
+    </p>
+      <p>
+      <strong>e-mail:</strong>
+      <%= @client.email %>
+    </p>
+
+
+  <p>
+    <%= link_to 'Delete Client', [client.invoice, client],
+                 method: :delete,
+                 data: { confirm: 'Are you sure?' } %>
   </p>
 
-
-<p>
-  <%= link_to 'Delete Client', [client.invoice, client],
-               method: :delete,
-               data: { confirm: 'Are you sure?' } %>
-</p>
-
-
+<% end %>

@@ -1,3 +1,3 @@
 class Client < ActiveRecord::Base
-  belongs_to :invoice
+   has_many :invoice
 end

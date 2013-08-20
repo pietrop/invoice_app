@@ -19,6 +19,10 @@ class InvoicesController < ApplicationController
 		  end
 	end
 
+	def invname 
+
+	end 
+
 #Read
 
 	def index
@@ -27,6 +31,7 @@ class InvoicesController < ApplicationController
 
 	def show
 	 	@invoice = Invoice.find(params[:id])
+	 	@client = @invoice.client
 	end
 
 #Update

@@ -11,18 +11,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130818204001) do
+ActiveRecord::Schema.define(version: 20130820113215) do
 
   create_table "bank_details", force: true do |t|
     t.string   "sort_code"
     t.integer  "account_number"
     t.string   "account_name"
-    t.integer  "invoice_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "my_detail_id"
   end
 
-  add_index "bank_details", ["invoice_id"], name: "index_bank_details_on_invoice_id"
+  add_index "bank_details", ["my_detail_id"], name: "index_bank_details_on_my_detail_id"
 
   create_table "clients", force: true do |t|
     t.string   "client_name"
@@ -30,12 +30,9 @@ ActiveRecord::Schema.define(version: 20130818204001) do
     t.string   "contact_name"
     t.string   "telephone"
     t.string   "email"
-    t.integer  "invoice_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
-
-  add_index "clients", ["invoice_id"], name: "index_clients_on_invoice_id"
 
   create_table "form_details", force: true do |t|
     t.integer  "number"
@@ -51,19 +48,21 @@ ActiveRecord::Schema.define(version: 20130818204001) do
     t.text     "note"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "client_id"
+    t.integer  "my_detail_id"
   end
+
+  add_index "invoices", ["client_id"], name: "index_invoices_on_client_id"
+  add_index "invoices", ["my_detail_id"], name: "index_invoices_on_my_detail_id"
 
   create_table "my_details", force: true do |t|
     t.string   "name"
     t.text     "address"
     t.string   "phone"
     t.string   "email"
-    t.integer  "invoice_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
-
-  add_index "my_details", ["invoice_id"], name: "index_my_details_on_invoice_id"
 
   create_table "services", force: true do |t|
     t.date     "date"

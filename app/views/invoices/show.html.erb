@@ -5,6 +5,8 @@
 
 
 <h1>Invoice</h1>
+
+
 	<div class="row-fluid">
 		<div class="span12">
 			<div class="span1">
@@ -12,11 +14,11 @@
 			<div class="span7">
 			  <%= render @invoice.form_detail if @invoice.form_detail  %>
 			</br>
-			  <%= render @invoice.clients %>
+			  <%= render "clients/client" %>
 			</div>
 		
 			<div class="span3">
-				<%= render @invoice.my_details %>
+				<%= render @invoice.my_detail if @invoice.my_detail %> <!-- @invoice.clients -->
 			</div>
 </div>
 	<div class="span12">
@@ -25,7 +27,48 @@
 			<div class="span2">
 			</div>
 			<div class="span6">
-			<%= render @invoice.services %>
+				<p>Providing <%= @invoice.services.first.service if @invoice.services.any? %> services as follow: </p>
+				
+
+<table  class="table table-hover"   data-provides="rowlink">
+   <thead>
+      <tr>
+        <th><strong>Date</strong></th>
+        <th><strong>Services</strong></th>
+        <th><strong>Rate</strong></th>
+        <th></th>
+        <th></th>    
+      </tr>
+  </thead>
+ <tbody>
+ 	<% for service in @invoice.services %>
+  <tr>
+      <td><%= service.date %></td>
+      <td><%= service.service %>  </td>
+      <td><%= service.rate %> £ </td> 
+      <td><%=  %> </td>
+      <td><%= link_to 'Delete', [service.invoice, service],
+               method: :delete,
+               data: { confirm: 'Are you sure?' } %></td>  
+         <% end %>
+    	</tr>
+	<tr>
+<td></td>
+<td></td>
+	<td><p><b><%= @invoice.services.sum('rate') %> £</b></p></td>
+<td></td>
+<td></td>
+	 </tr>
+  </tbody>
+
+</table>
+
+
+
+
+
+
+
 			</div>
 			<div class="span2">
 			</div>
@@ -36,8 +79,9 @@
 			<div class="span1">
 			</div>
 			<div class="span6">
-				<p>Payment terms: 21 days net.</br>Payment Details:</p>
-			<%= render @invoice.bank_details %>
+				<p>Payment terms: 21 days net.<br><br>Payment Details:</p>
+
+			<%# render @invoice.bank_details %>
 			</div>
 			<div class="span3">
 			</div>
@@ -71,13 +115,13 @@
 			<div class="span1">
 			</div>
 			<div class="span7">
-			   <%= render "form_details/form" %>
+			   <%= render "form_details/form" unless @invoice.form_detail %>
 			</br>
 			  <%= render "clients/form" %>
 			</div>
 		
 			<div class="span3">
-				<%= render "my_details/form" %>
+				<%# render "my_details/form" %>
 			</div>
 </div>
 	<div class="span12">
@@ -86,7 +130,7 @@
 			<div class="span2">
 			</div>
 			<div class="span6">
-			<%= render "services/form" %>
+			<%# render "services/form" %>
 			</div>
 			<div class="span2">
 			</div>
@@ -98,7 +142,7 @@
 			</div>
 			<div class="span6">
 				<p>Payment terms: 21 days net</br>Payment Details:</p>
-			<%= render "bank_details/form" %>
+			<%# render "bank_details/form" %>
 			</div>
 			<div class="span3">
 			</div>

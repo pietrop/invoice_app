@@ -1,14 +1,25 @@
 Invoiceapp::Application.routes.draw do
 
   get "welcome/index"
-  resources :invoices do 
-    resources :bank_details
-    resources :form_details
-    resources :my_details
-    resources :clients
-    resources :services
+   # resources :my_details
+   # resources :invoices 
+   # resources :bank_details
+   #  resources :clients 
+   #  resources :form_details
+   #    resources :services
+
    
-  end 
+  resources :invoices do 
+   resource :form_detail
+   resource :service
+   resources :my_details
+   resource :bank_detail
+   resources :clients
+end 
+
+      
+   
+  
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

@@ -23,7 +23,7 @@ end
 
   def update
     @invoice = Invoice.find(params[:invoice_id])
-    @my_detail = FormDetail.find(params[:id])
+    @my_detail = MyDetail.find(params[:id])
 
     if
       @my_detail.update_attributes(params[:my_detail])

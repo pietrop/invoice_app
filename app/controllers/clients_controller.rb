@@ -1,6 +1,11 @@
 class ClientsController < ApplicationController
 http_basic_authenticate_with name: "p", password: "secret", only: :destroy
-	def create
+	
+  def new 
+    @client = Client.new 
+  end 
+
+  def create
 	    @invoice = Invoice.find(params[:invoice_id])
 	    @client = @invoice.clients.create(params[:client].permit(:client_name, :client_address, :contact_name, :telephone, :email))
 	    redirect_to invoice_path(@invoice)
@@ -17,12 +22,12 @@ http_basic_authenticate_with name: "p", password: "secret", only: :destroy
 #Update
   def edit
   @client = client.find(params[:id])
-  @invoice = Invoice.find(params[: id])
+  @invoice = Invoice.find(params[:invoice_id])
 end
 
   def update
-    @invoice = Invoice.find(params[:post_id])
-    @client = FormDetail.find(params[:id])
+    @invoice = Invoice.find(params[:invoice_id])
+    @client = Client.find(params[:id])
 
     if
       @client.update_attributes(params[:client])
@@ -35,8 +40,7 @@ end
 
   def show
   @invoice = Invoice.find(params[:id])
-  @client = @invoice.clients.build
-end
+  @client = @invoice.client
 
 #strong params
   private
